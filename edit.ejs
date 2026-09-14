@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Edit Post</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Edit Blog Post</h1>
+
+    </header>
+
+
+    <main>
+
+        <section class="form-section">
+
+            <h2>Edit Post</h2>
+
+            <form
+                action="/posts/<%= post.id %>?_method=PUT"
+                method="POST"
+            >
+
+                <label for="creator">
+                    Your Name:
+                </label>
+
+                <input
+                    type="text"
+                    id="creator"
+                    name="creator"
+                    value="<%= post.creator %>"
+                    required
+                >
+
+
+                <label for="title">
+                    Blog Title:
+                </label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value="<%= post.title %>"
+                    required
+                >
+
+
+                <label for="category">
+                    Category:
+                </label>
+
+                <select id="category" name="category">
+
+                    <option
+                        value="Tech"
+                        <%= post.category === "Tech" ? "selected" : "" %>
+                    >
+                        Tech
+                    </option>
+
+                    <option
+                        value="Lifestyle"
+                        <%= post.category === "Lifestyle" ? "selected" : "" %>
+                    >
+                        Lifestyle
+                    </option>
+
+                    <option
+                        value="Education"
+                        <%= post.category === "Education" ? "selected" : "" %>
+                    >
+                        Education
+                    </option>
+
+                    <option
+                        value="Other"
+                        <%= post.category === "Other" ? "selected" : "" %>
+                    >
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label for="content">
+                    Blog:
+                </label>
+
+                <textarea
+                    id="content"
+                    name="content"
+                    rows="10"
+                    required
+                ><%= post.content %></textarea>
+
+
+                <button type="submit">
+                    Save Changes
+                </button>
+
+                <a
+                    href="/"
+                    class="cancel-button"
+                >
+                    Cancel
+                </a>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
