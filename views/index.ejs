@@ -73,10 +73,20 @@
         <section>
 
             <h2>Blog Posts</h2>
+            <form action="/" method="GET" class="form-section">
+                <label for="filter-category">Filter by category:</label>
+                <select id="filter-category" name="category">
+                    <option value="">All categories</option>
+                    <% categories.forEach(function(item) { %>
+                        <option value="<%= item %>" <%= category === item ? "selected" : "" %>><%= item %></option>
+                    <% }); %>
+                </select>
+                <button type="submit">Filter Posts</button>
+            </form>
 
             <% if (posts.length === 0) { %>
 
-                <p>No posts yet. Create the first one!</p>
+                <p><%= category ? "No posts in this category yet." : "No posts yet. Create the first one!" %></p>
 
             <% } %>
 
