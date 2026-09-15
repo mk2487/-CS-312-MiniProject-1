@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
-// Home page
+
 app.get("/", (req, res) => {
     const category = categories.includes(req.query.category) ? req.query.category : "";
     res.render("index", { posts: category ? posts.filter(p => p.category === category) : posts, category, categories });
@@ -34,7 +34,7 @@ function validatePost(req, res, next) {
     next();
 }
 
-// Create a new post
+
 app.post("/posts", validatePost, (req, res) => {
     const newPost = {
         id: randomUUID(),
