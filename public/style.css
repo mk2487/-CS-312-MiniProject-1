@@ -104,9 +104,12 @@ button {
 }
 
 .post-content {
+    overflow-wrap: anywhere;
     line-height: 1.6;
     white-space: pre-wrap;
 }
+
+.post h3 { overflow-wrap: anywhere; }
 
 @media (max-width: 600px) {
 
